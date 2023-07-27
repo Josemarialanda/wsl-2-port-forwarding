@@ -1,0 +1,19 @@
+# Connect to WSL2 exposed at localhost:2222 from windows host
+Host ubuntu-wsl2
+    HostName localhost
+    Port 2222
+    User lanita
+    IdentityFile ~/.ssh/wsl2
+
+# Connect to windows through tailscale (use password)
+Host windows
+    HostName 100.86.232.85
+    User josem
+
+# Connect to WSL2 directly through windows (proxy)
+Host linux
+    Port 2222
+    User lanita
+    HostName localhost
+    ProxyJump windows
+    IdentityFile ~/.ssh/wsl2
